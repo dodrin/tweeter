@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 5rem;
+  justify-content: center;
 }
 
 .new-tweet__form textarea {

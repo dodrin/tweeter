@@ -59,25 +59,21 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <h1>Lorem.</h1>
+      <!-- <h1>Lorem.</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
         corporis repudiandae accusamus, dolorum ratione nulla in et quos
         veritatis provident, fuga non sit. Deserunt accusantium, harum ratione
         magni facilis iure.
-      </p>
+      </p> -->
 
       <section class="new-tweet">
         <!-- <h2>Compose Tweet</h2> -->
         <form class="new-tweet__form" action="/tweets" method="POST">
-          <!-- <label for="tweet-text" class="tweet-text">
+          <label for="tweet-text" class="tweet-text">
             What are you humming about?
-          </label> -->
-          <textarea
-            name="text"
-            id="tweet-text"
-            placeholder="What are you humming about?"
-          ></textarea>
+          </label>
+          <textarea name="text" id="tweet-text"></textarea>
           <div class="new-tweet__tweet">
             <button class="new-tweet__button" type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
@@ -85,5 +81,9 @@
         </form>
       </section>
     </main>
+    <script
+      type="text/javascript"
+      src="/scripts/composer-char-counter.js"
+    ></script>
   </body>
 </html>
