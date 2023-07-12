@@ -1,11 +1,19 @@
 header {
-  height: 400px;
-  width: 100%;
-  padding-top: 120px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 4rem;
+  margin-bottom: 5rem;
   background-image: url(/images/black-thread.png);
   background-color: orange;
   color: #fff;
+}
+
+header .avater-img {
+  margin-top: 12rem;
+}
+
+header .name {
+ margin-bottom: 3rem;
 }
