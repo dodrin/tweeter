@@ -1,3 +1,4 @@
+//display the length of characters in tweet-text text area
 $("#tweet-text").keyup(function () {
   const charCount = $(this).val().length;
   const maxLength = 140;

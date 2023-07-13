@@ -8,7 +8,7 @@
 .new-tweet__form textarea {
   background-color: #f4f1ec;
   border: none;
-  border-bottom: 0.6rem solid #545149;
+  border-bottom: 0.3rem solid #545149;
 }
 
 .new-tweet__tweet {
@@ -26,4 +26,3 @@
   padding: 0.5rem 1rem;
 }
 
- 

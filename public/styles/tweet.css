@@ -1,0 +1,38 @@
+article.tweet {
+  border: 0.3rem solid #545149;
+  padding: 2rem;
+}
+
+article.tweet:hover {
+  box-shadow: 10px 10px #C9C2C7;
+
+}
+
+article.tweet header {
+  display: flex;
+  justify-content: space-between;
+}
+
+article.tweet .user-id {
+  color: #C9C2C7;
+}
+
+
+article.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 0.3rem solid #545149;
+  padding-top: 1rem;
+}
+
+article.tweet .fa-flag:hover {
+  color: goldenrod;
+}
+
+article.tweet .fa-retweet:hover {
+  color: goldenrod;
+}
+
+article.tweet .fa-heart:hover {
+  color: goldenrod;
+}
