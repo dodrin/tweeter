@@ -1,6 +1,6 @@
 article.tweet {
   border: 0.3rem solid #545149;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 article.tweet:hover {
@@ -11,6 +11,7 @@ article.tweet:hover {
 article.tweet header {
   display: flex;
   justify-content: space-between;
+  margin: 0.5rem;
 }
 
 article.tweet .user-id {
@@ -18,12 +19,20 @@ article.tweet .user-id {
   color: #C9C2C7;
 }
 
+article.tweet p {
+  border-bottom: 0.3rem solid #545149;
+  padding: 1rem;
+}
+
 article.tweet footer {
   display: flex;
   justify-content: space-between;
-  border-top: 0.3rem solid #545149;
-  padding-top: 1rem;
+  margin: 0.5rem 1.5rem;
   font-size: 1rem;
+}
+
+article.tweet .icon {
+  color: #41528D;
 }
 
 article.tweet .icon:hover {
