@@ -14,25 +14,18 @@ article.tweet header {
 }
 
 article.tweet .user-id {
+  font-weight: 400;
   color: #C9C2C7;
 }
-
 
 article.tweet footer {
   display: flex;
   justify-content: space-between;
   border-top: 0.3rem solid #545149;
   padding-top: 1rem;
+  font-size: 1rem;
 }
 
-article.tweet .fa-flag:hover {
-  color: goldenrod;
-}
-
-article.tweet .fa-retweet:hover {
-  color: goldenrod;
-}
-
-article.tweet .fa-heart:hover {
+article.tweet .icon:hover {
   color: goldenrod;
 }
