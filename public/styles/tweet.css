@@ -1,6 +1,8 @@
+
 article.tweet {
   border: 0.3rem solid #545149;
   padding: 1rem;
+  margin: 2.5rem;
 }
 
 article.tweet:hover {
@@ -11,7 +13,7 @@ article.tweet:hover {
 article.tweet header {
   display: flex;
   justify-content: space-between;
-  margin: 0.5rem;
+  margin: 2rem 1rem 1rem 1rem;
 }
 
 article.tweet .user-id {
@@ -21,7 +23,7 @@ article.tweet .user-id {
 
 article.tweet p {
   border-bottom: 0.3rem solid #545149;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 article.tweet footer {
