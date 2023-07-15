@@ -4,44 +4,34 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-function calculateDaysAgo(timestamp) {
-  const millisecondsPerDay = 24 * 60 * 60 * 1000; // Number of milliseconds in a day
-  const currentDate = new Date();
-  const tweetDate = new Date(timestamp);
-  const timeDiff = Math.abs(currentDate.getTime() - tweetDate.getTime());
-  const daysAgo = Math.floor(timeDiff / millisecondsPerDay);
-  return daysAgo;
-}
-
 $(document).ready(() => {
   // Fake data taken from initial-tweets.json
-  const data = [
-    {
-      user: {
-        name: "Newton",
-        avatars: "https://i.imgur.com/73hZDYK.png",
-        handle: "@SirIsaac",
-      },
-      content: {
-        text: "If I have seen further it is by standing on the shoulders of giants",
-      },
-      created_at: 1461116232227,
-    },
-    {
-      user: {
-        name: "Descartes",
-        avatars: "https://i.imgur.com/nlhLi3I.png",
-        handle: "@rd",
-      },
-      content: {
-        text: "Je pense , donc je suis",
-      },
-      created_at: 1461113959088,
-    },
-  ];
+  // const data = [
+  //   {
+  //     user: {
+  //       name: "Newton",
+  //       avatars: "https://i.imgur.com/73hZDYK.png",
+  //       handle: "@SirIsaac",
+  //     },
+  //     content: {
+  //       text: "If I have seen further it is by standing on the shoulders of giants",
+  //     },
+  //     created_at: 1461116232227,
+  //   },
+  //   {
+  //     user: {
+  //       name: "Descartes",
+  //       avatars: "https://i.imgur.com/nlhLi3I.png",
+  //       handle: "@rd",
+  //     },
+  //     content: {
+  //       text: "Je pense , donc je suis",
+  //     },
+  //     created_at: 1461113959088,
+  //   },
+  // ];
 
   const renderTweets = function (tweets) {
-    // alert('Hello Hi')
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
@@ -53,9 +43,7 @@ $(document).ready(() => {
   };
 
   const createTweetElement = function (tweet) {
-    // fix the object with tweet not data
     const article = $("<section>");
-    // const daysAgo = calculateDaysAgo(tweet.created_at);
     const daysAgo = jQuery.timeago(tweet.created_at);
 
     article.append(`
@@ -81,5 +69,40 @@ $(document).ready(() => {
     return article;
   };
 
-  renderTweets(data);
+  $(".new-tweet__form").on("submit", function (event) {
+    //Stop from form submitting normally
+    event.preventDefault();
+
+    const TweetData = $(".new-tweet__form").serialize();
+    // console.log(TweetData);
+    $.post("/tweets", TweetData).then((result) => {
+      // alert("Hi");
+    });
+  });
+
+  const loadtweets = () => {
+    $.ajax({
+      url: "/tweets",
+      type: "GET",
+      datatype: "json",
+      success: (result) => {
+        // console.log(result);
+        renderTweets(result);
+      },
+      error: (error) => {
+        console.error("An error occured, ", error);
+      },
+    });
+  };
+
+  loadtweets();
 });
+
+// const postTweetData = () => {
+//   const TweetData = $(".new-tweet__form").serialize();
+//   console.log(TweetData);
+//   $.post("/tweets", TweetData).then((result) => {
+//     console.log(result);
+//     getTweetData();
+//   });
+// };
