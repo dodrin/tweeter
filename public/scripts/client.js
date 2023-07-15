@@ -57,20 +57,24 @@ $(document).ready(() => {
     const article = $("<section>");
     const daysAgo = calculateDaysAgo(tweet.created_at);
 
-    article.append(`<article class="tweet">
-    <header>
-    <div class="user-name">${tweet.user.name}</div>
-    <div class="user-id">${tweet.user.handle}</div>
-    </header>
-    <p>${tweet.content.text}</p>
-    <footer>
-    ${daysAgo} days ago
-    <div>
-      <i class="icon fa-solid fa-flag"></i>
-      <i class="icon fa-solid fa-retweet"></i>
-      <i class="icon fa-solid fa-heart"></i>
-    </div>
-    </footer>
+    article.append(`
+    <article class="tweet">
+      <header>
+        <div class="user">
+          <img src="https://i.imgur.com/73hZDYK.png" alt="face-icon"/>
+          <div class="user-name">${tweet.user.name}</div>
+        </div>
+        <div class="user-id">${tweet.user.handle}</div>
+      </header>
+      <p>${tweet.content.text}</p>
+      <footer>
+        ${daysAgo} days ago
+        <div>
+          <i class="icon fa-solid fa-flag"></i>
+          <i class="icon fa-solid fa-retweet"></i>
+          <i class="icon fa-solid fa-heart"></i>
+        </div>
+      </footer>
     </article>`);
 
     return article;

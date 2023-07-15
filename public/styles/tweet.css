@@ -1,42 +1,53 @@
 
-article.tweet {
+.tweet {
   border: 0.3rem solid #545149;
   padding: 1rem;
   margin: 2.5rem;
 }
 
-article.tweet:hover {
+.tweet:hover {
   box-shadow: 10px 10px #C9C2C7;
 
 }
 
-article.tweet header {
+.tweet header {
   display: flex;
   justify-content: space-between;
   margin: 2rem 1rem 1rem 1rem;
 }
 
-article.tweet .user-id {
+.tweet .user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tweet .user-name {
+  margin-left: 1rem;
+}
+
+.tweet .user-id {
   font-weight: 400;
   color: #C9C2C7;
 }
 
-article.tweet p {
+.tweet p {
   border-bottom: 0.3rem solid #545149;
   padding: 0.5rem;
 }
 
-article.tweet footer {
+.tweet footer {
   display: flex;
   justify-content: space-between;
   margin: 0.5rem 1.5rem;
   font-size: 1rem;
 }
 
-article.tweet .icon {
+.tweet .icon {
+  margin-right: 0.5rem;
   color: #41528D;
 }
 
-article.tweet .icon:hover {
+.tweet .icon:hover {
   color: goldenrod;
 }
