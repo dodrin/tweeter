@@ -55,7 +55,8 @@ $(document).ready(() => {
   const createTweetElement = function (tweet) {
     // fix the object with tweet not data
     const article = $("<section>");
-    const daysAgo = calculateDaysAgo(tweet.created_at);
+    // const daysAgo = calculateDaysAgo(tweet.created_at);
+    const daysAgo = jQuery.timeago(tweet.created_at);
 
     article.append(`
     <article class="tweet">
@@ -68,7 +69,7 @@ $(document).ready(() => {
       </header>
       <p>${tweet.content.text}</p>
       <footer>
-        ${daysAgo} days ago
+        <span class="timestamp">${daysAgo}</span>
         <div>
           <i class="icon fa-solid fa-flag"></i>
           <i class="icon fa-solid fa-retweet"></i>
