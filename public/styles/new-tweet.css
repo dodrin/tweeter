@@ -26,3 +26,12 @@
   padding: 0.5rem 1rem;
 }
 
+.new-tweet__error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: dotted #CA241C;
+  font-weight: 500;
+  color: #CA241C;
+}
+
