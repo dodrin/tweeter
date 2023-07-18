@@ -72,51 +72,29 @@ $(document).ready(() => {
     //Serialize the form data and leave only the form input
     const tweetData = $(".new-tweet__form").serialize();
     const tweetChars = tweetData.slice(5);
+    const errorMsg = $(".new-tweet__error");
 
     if (tweetChars === "" || tweetChars === null) {
-      $(".new-tweet__error").text("Input can not be empty");
-      $(".new-tweet__error").slideDown();
-      $(".new-tweet__error").show();
-
+      errorMsg.text("Input can not be empty");
+      errorMsg.slideDown();
+      errorMsg.show();
       return;
     }
 
     if (tweetChars.length > 140) {
-      $(".new-tweet__error").text("Exceeds the maximum characteres");
-      $(".new-tweet__error").slideDown();
-      $(".new-tweet__error").show();
+      errorMsg.text("Exceeds the maximum characteres");
+      errorMsg.slideDown();
+      errorMsg.show();
       return;
     }
 
     $.post("/tweets", tweetData).then((result) => {
-      $(".new-tweet__error").css("display", "none");
+      errorMsg.css("display", "none");
       //Display new tweet without refreshing
       loadTweets();
     });
   });
 
-  // const postTweet = () => {
-  //   const tweetData = $(".new-tweet__form").serialize();
-  //   const tweetChars = tweetData.slice(5);
-
-  //   if (tweetChars === "" || tweetChars === null) {
-
-  //   } else if (tweetChars.length > 140) {
-  //     alert("Tweet exceeds the maximum length");
-  //   } else {
-  //     $.post("/tweets", tweetData).then((result) => {
-  //       //Display new tweet without refreshing
-  //       loadTweets();
-  //     });
-  //   }
-  // };
-
   loadTweets();
 
-  //
-  // $(".new-tweet__form").on("submit", function (event) {
-  //   //Stop from form submitting normally
-  //   event.preventDefault();
-  //   postTweet();
-  // });
 });
