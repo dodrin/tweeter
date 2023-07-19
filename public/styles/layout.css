@@ -19,6 +19,9 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans 3', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /*
@@ -30,4 +33,18 @@ main {
   margin: auto;
   background-color: #f4f1ec;
   padding-bottom: 3em;
+}
+
+
+@media only screen and (min-width: 1024px) {
+  body {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  main {
+    margin-top: 13rem;
+    margin-right: 3rem;
+  }
 }

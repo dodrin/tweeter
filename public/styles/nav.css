@@ -18,7 +18,7 @@ nav .logo {
  }
 
  nav .right {
-  margin-top: 2rem;
+  margin-top: 1rem;
  }
 
  nav .arrow {
@@ -26,6 +26,6 @@ nav .logo {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 0.2em;
+  margin-top: 0.2rem;
   color: red;
  }

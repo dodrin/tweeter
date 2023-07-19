@@ -1,19 +1,32 @@
-header.avater-header{
+.avater-header{
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 4rem;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   background-image: url(/images/black-thread.png);
-  background-color: orange;
+  background-color:#E6DF2E;
   color: #fff;
 }
 
-header .avater-img {
-  margin-top: 12rem;
+.avater-img {
+  margin-top: 10rem;
 }
 
-header .name {
+.name {
  margin-bottom: 3rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .avater-header {
+    width: 50%;
+    margin: 13rem 5rem;
+    max-height: 500px;
+  }
+
+  .avater-img {
+    margin-top: 5rem;
+  }
 }
