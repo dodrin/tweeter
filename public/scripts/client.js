@@ -70,6 +70,7 @@ $(document).ready(() => {
     event.preventDefault();
 
     //Serialize the form data and leave only the form input
+    //It will display error message if input does not meet consditions
     const tweetData = $(".new-tweet__form").serialize();
     const tweetChars = tweetData.slice(5);
     const errorMsg = $(".new-tweet__error");
@@ -77,24 +78,23 @@ $(document).ready(() => {
     if (tweetChars === "" || tweetChars === null) {
       errorMsg.text("Input can not be empty");
       errorMsg.slideDown();
-      errorMsg.show();
       return;
     }
 
     if (tweetChars.length > 140) {
       errorMsg.text("Exceeds the maximum characteres");
       errorMsg.slideDown();
-      errorMsg.show();
       return;
     }
 
+    //If the input meet the condition, error message and input form will be cleared
+    //And will display tweets without refreshing
     $.post("/tweets", tweetData).then((result) => {
       errorMsg.css("display", "none");
-      //Display new tweet without refreshing
+      $("#tweet-text").val("");
       loadTweets();
     });
   });
 
   loadTweets();
-
 });
