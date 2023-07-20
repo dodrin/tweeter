@@ -1,8 +1,9 @@
 .avater-header{
   width: 100%;
+  height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   font-size: 4rem;
   margin-bottom: 3rem;
@@ -21,9 +22,9 @@
 
 @media only screen and (min-width: 1024px) {
   .avater-header {
-    width: 50%;
+    min-width: 35%;
     margin: 13rem 5rem;
-    max-height: 500px;
+    /* max-height: 500px; */
   }
 
   .avater-img {
