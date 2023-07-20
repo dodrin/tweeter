@@ -80,8 +80,8 @@ $(document).ready(() => {
 
     //Serialize the form data and leave only the form input
     //It will display error message if input does not meet consditions
-    const serializedTweet = $(".new-tweet__form").serialize(),
-      tweetChars = serializedTweet.slice(5),
+    const serializedData = $(".new-tweet__form").serialize(),
+      tweetChars = serializedData.slice(5),
       errorMsg = $(".new-tweet__error"),
       maxChars = 140;
 
@@ -99,9 +99,10 @@ $(document).ready(() => {
 
     //If the input meet the condition, error message and input form will be cleared
     //And will display tweets without refreshing
-    $.post("/tweets", tweetData).then((result) => {
+    $.post("/tweets", serializedData).then((result) => {
       errorMsg.css("display", "none");
       $("#tweet-text").val("");
+      $(".counter").text(140);
       loadTweets();
     });
   });
