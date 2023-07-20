@@ -34,3 +34,9 @@
   font-weight: 500;
   color: #CA241C;
 }
+
+@media only screen and (min-width: 1024px) {
+  .new-tweet__form {
+    width: 70%;
+  }
+}
