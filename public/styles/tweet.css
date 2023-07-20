@@ -2,7 +2,8 @@
 .tweet {
   border: 0.3rem solid #545149;
   padding: 1rem;
-  margin: 2.5rem;
+  margin: 1.5rem;
+  word-wrap: break-word;
 }
 
 .tweet:hover {
@@ -50,4 +51,10 @@
 
 .tweet .icon:hover {
   color: goldenrod;
+}
+
+@media only screen and (min-width: 1024px) {
+  .tweet {
+    width: 70%;
+  }
 }
