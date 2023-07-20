@@ -4,21 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(() => {
-  //make an Ajax request to /tweets and reciceve the array of tweet as JSON
-  const loadTweets = () => {
-    $.ajax({
-      url: "/tweets",
-      type: "GET",
-      dataType: "json",
-      success: (tweet) => {
-        renderTweets(tweet);
-      },
-      error: (error) => {
-        console.error("An error occured, ", error);
-      },
-    });
-  };
-
   //Fucntion to re-encode text to prevenx XSS
   const escape = function (str) {
     let div = document.createElement("div");
@@ -26,6 +11,17 @@ $(document).ready(() => {
     return div.innerHTML;
   };
 
+  //Loop through the database and show tweets
+  const renderTweets = function (tweets) {
+    $(".new-tweet__error").css("display", "none");
+    $("#tweets-container").empty();
+    for (const tweet of tweets) {
+      const $tweet = createTweetElement(tweet);
+      $("#tweets-container").prepend($tweet);
+    }
+  };
+
+  //
   const createTweetElement = function (tweet) {
     const article = $("<section>");
     const daysAgo = jQuery.timeago(tweet.created_at);
@@ -55,14 +51,27 @@ $(document).ready(() => {
     return article;
   };
 
-  //Loop through the database and show tweets
-  const renderTweets = function (tweets) {
-    $(".new-tweet__error").css("display", "none");
-    $("#tweets-container").empty();
-    for (const tweet of tweets) {
-      const $tweet = createTweetElement(tweet);
-      $("#tweets-container").prepend($tweet);
-    }
+  //make an Ajax request to /tweets and reciceve the array of tweet as JSON
+  const loadTweets = () => {
+    // $.ajax({
+    //   url: "/tweets",
+    //   type: "GET",
+    //   dataType: "json",
+    //   success: (tweet) => {
+    //     renderTweets(tweet);
+    //   },
+    //   error: (error) => {
+    //     console.error("An error occured, ", error);
+    //   },
+    // });
+
+    $.get("/tweets")
+      .then((tweet) => {
+        renderTweets(tweet);
+      })
+      .catch((error) => {
+        console.error("An error occured, ", error);
+      });
   };
 
   $(".new-tweet__form").on("submit", function (event) {
@@ -71,17 +80,18 @@ $(document).ready(() => {
 
     //Serialize the form data and leave only the form input
     //It will display error message if input does not meet consditions
-    const tweetData = $(".new-tweet__form").serialize();
-    const tweetChars = tweetData.slice(5);
-    const errorMsg = $(".new-tweet__error");
+    const serializedTweet = $(".new-tweet__form").serialize(),
+      tweetChars = serializedTweet.slice(5),
+      errorMsg = $(".new-tweet__error"),
+      maxChars = 140;
 
-    if (tweetChars === "" || tweetChars === null) {
+    if (!tweetChars) {
       errorMsg.text("Input can not be empty");
       errorMsg.slideDown();
       return;
     }
 
-    if (tweetChars.length > 140) {
+    if (tweetChars.length > maxChars) {
       errorMsg.text("Exceeds the maximum characteres");
       errorMsg.slideDown();
       return;
