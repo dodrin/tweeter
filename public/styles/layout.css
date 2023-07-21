@@ -45,6 +45,8 @@ main {
 
   main {
     margin-top: 13rem;
+    width: 70%;
+    height: auto;
     /* margin-right: 3rem; */
   }
 }
