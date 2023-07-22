@@ -7,7 +7,6 @@ This repository is the starter code for the project: Students will fork and clon
 ## Screenshots
 
 ![Desktop view screenshot gif](/docs/tweeter-01.gif)
-![Mobile view screenshot gif](/docs/tweeter-02.gif)
 ![Desktop view screenshot when exceeds maximum character](/docs/tweeter-03.png)
 ![Mobile view screenshot when tweet form is hidden](/docs/tweeter-04.png)
 ## Getting Started
