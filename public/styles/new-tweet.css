@@ -24,6 +24,12 @@
   color: #fff;
   font-family: 'Bungee', cursive;
   padding: 0.5rem 1rem;
+  transition-duration: 0.4s;
+}
+
+.new-tweet__button:hover {
+  background-color: #ADBEF7;
+  cursor: pointer;
 }
 
 .new-tweet__error {
@@ -33,6 +39,8 @@
   border: dotted #CA241C;
   font-weight: 500;
   color: #CA241C;
+  margin: 1.5rem;
+  padding: 1rem;
 }
 
 @media only screen and (min-width: 1024px) {

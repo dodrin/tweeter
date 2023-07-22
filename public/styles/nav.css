@@ -14,20 +14,37 @@ nav {
   z-index: 99;
 }
 
-nav .logo {
+.nav-logo {
   font-family: 'Bungee', cursive;
   font-size: 1.5em;
  }
 
- nav .right {
+.nav-right {
   margin-top: 1rem;
  }
 
- nav .arrow {
+.nav-right:hover {
+  cursor: pointer;;
+ }
+
+.nav-arrow {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 0.2rem;
   color: red;
+  animation: updown 1.5s ease infinite;
  }
+ 
+ @keyframes updown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
