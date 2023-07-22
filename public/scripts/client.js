@@ -11,7 +11,7 @@ $(document).ready(() => {
     return div.innerHTML;
   };
 
-  //Loop through the database and show tweets
+  //takes in array of tweet objects and add at the beginning of tweets
   const renderTweets = function (tweets) {
     $(".new-tweet__error").css("display", "none");
     $("#tweets-container").empty();
@@ -21,9 +21,9 @@ $(document).ready(() => {
     }
   };
 
-  //
+  //takes in tweet object and return tweet element
   const createTweetElement = function (tweet) {
-    const article = $("<section>");
+    const tweets = $("<section>");
     const daysAgo = jQuery.timeago(tweet.created_at);
     const safeHTML = escape(tweet.content.text);
 
@@ -47,23 +47,12 @@ $(document).ready(() => {
       </footer>
     </article>`);
 
-    article.append($tweet);
-    return article;
+    tweets.append($tweet);
+    return tweets;
   };
 
   //make an Ajax request to /tweets and reciceve the array of tweet as JSON
   const loadTweets = () => {
-    // $.ajax({
-    //   url: "/tweets",
-    //   type: "GET",
-    //   dataType: "json",
-    //   success: (tweet) => {
-    //     renderTweets(tweet);
-    //   },
-    //   error: (error) => {
-    //     console.error("An error occured, ", error);
-    //   },
-    // });
 
     $.get("/tweets")
       .then((tweet) => {
@@ -74,35 +63,37 @@ $(document).ready(() => {
       });
   };
 
+  //event listner for submitting new tweet form
   $(".new-tweet__form").on("submit", function (event) {
-    //Stop from form submitting normally
     event.preventDefault();
 
     //Serialize the form data and leave only the form input
-    //It will display error message if input does not meet consditions
-    const serializedData = $(".new-tweet__form").serialize(),
-      tweetChars = serializedData.slice(5),
+    //It will display error message if input does not meet the conditions
+    const serializedData = $(this).serialize(),
+      tweetLength = $("#tweet-text").val().length,
       errorMsg = $(".new-tweet__error"),
       maxChars = 140;
 
-    if (!tweetChars) {
+    errorMsg.slideUp(250);
+
+    if (!tweetLength) {
       errorMsg.text("Input can not be empty");
       errorMsg.slideDown();
       return;
     }
 
-    if (tweetChars.length > maxChars) {
+    if (tweetLength > maxChars) {
       errorMsg.text("Exceeds the maximum characteres");
       errorMsg.slideDown();
       return;
     }
 
-    //If the input meet the condition, error message and input form will be cleared
-    //And will display tweets without refreshing
+    //If the input meet the conditions, error message and input form will be cleared
+    //then it will display tweets without refreshing
     $.post("/tweets", serializedData).then((result) => {
       errorMsg.css("display", "none");
       $("#tweet-text").val("");
-      $(".counter").text(140);
+      $(".counter").val(140);
       loadTweets();
     });
   });
