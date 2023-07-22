@@ -4,5 +4,6 @@ $(document).ready(() => {
 
   $(".nav-right").click(() => {
     $(".new-tweet").slideToggle("slow");
+    $(".new-tweet textarea").focus();
   });
 });
