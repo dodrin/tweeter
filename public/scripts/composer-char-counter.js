@@ -7,8 +7,7 @@ $("#tweet-text").keyup(function () {
   counter.text(maxLength - charCount);
 
   if (charCount > maxLength) {
-    counter.css("color", "red");
-  } else {
-    counter.css("color", "#545149");
+    return counter.css("color", "red");
   }
+  return counter.css("color", "#545149");
 });
