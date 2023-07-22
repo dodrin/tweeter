@@ -89,7 +89,7 @@ $(document).ready(() => {
     }
 
     //If the input meet the conditions, error message and input form will be cleared
-    //then it will display tweets without refreshing
+    //then will display tweets without refreshing
     $.post("/tweets", serializedData).then((result) => {
       errorMsg.css("display", "none");
       $("#tweet-text").val("");

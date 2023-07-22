@@ -1,0 +1,17 @@
+#toggle-up {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 1.5rem;
+  border-radius: 50%;
+  background-color: #CA241C;
+}
+
+#toggle-up:hover {
+  box-shadow: 5px 5px 5px #C9C2C7;
+}
