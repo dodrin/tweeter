@@ -51,6 +51,7 @@
 
 .tweet .icon:hover {
   color: goldenrod;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 1024px) {

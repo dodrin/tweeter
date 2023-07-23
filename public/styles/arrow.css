@@ -10,6 +10,16 @@
   padding: 1.5rem;
   border-radius: 50%;
   background-color: #CA241C;
+  width: 60px;
+  height: 60px;
+}
+
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 #toggle-up:hover {
