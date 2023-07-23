@@ -1,18 +1,22 @@
 // Page scroll-up button to appear when its scroll down
 // as scroll dwon write a new tweet button will desappear
 $(document).ready(() => {
+  // caching jQuery selectors
+  const $toggleUp = $("#toggle-up");
+  const $navRight = $(".nav-right");
+
   $(window).scroll(() => {
-    if ($(this).scrollTop() > 100) {
-      $("#toggle-up").fadeIn();
-      $(".nav-right").fadeOut();
+    if ($(window).scrollTop() > 100) {
+      $toggleUp.fadeIn();
+      $navRight.fadeOut();
     } else {
-      $(".nav-right").fadeIn();
-      $("#toggle-up").fadeOut();
+      $navRight.fadeIn();
+      $toggleUp.fadeOut();
     }
   });
 
-  //Scroll-top button
-  $("#toggle-up").click(() => {
+  // scroll-top button
+  $toggleUp.click(() => {
     $("html, body").animate(
       {
         scrollTop: 0,
@@ -22,4 +26,3 @@ $(document).ready(() => {
     return false;
   });
 });
-c
