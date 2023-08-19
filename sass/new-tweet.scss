@@ -1,3 +1,5 @@
+@use 'base';
+
 .new-tweet__form {
   display: flex;
   flex-direction: column;
@@ -8,7 +10,7 @@
 .new-tweet__form textarea {
   background-color: #f4f1ec;
   border: none;
-  border-bottom: 0.3rem solid #545149;
+  border-bottom: 0.3rem solid base.$text-color;
 }
 
 .new-tweet__tweet {
@@ -20,9 +22,9 @@
 
 .new-tweet__button {
   border: none;
-  background-color: #4056A1;
+  background-color: base.$primary-color;
   color: #fff;
-  font-family: "Bungee", cursive;
+  font-family: 'Bungee', cursive;
   padding: 0.5rem 1rem;
   transition-duration: 0.4s;
 }
@@ -36,9 +38,9 @@
   display: none;
   justify-content: center;
   align-items: center;
-  border: dotted #CA241C;
+  border: dotted base.$secondary-color;
   font-weight: 500;
-  color: #CA241C;
+  color: base.$secondary-color;
   margin: 1.5rem;
   padding: 1rem;
 }

@@ -3,10 +3,12 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+ 
+@use 'base';
+
 html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -14,16 +16,18 @@ html {
 /*
  * Global layout stuff
  */
+
 body {
-  color: #545149;
+  color: base.$text-color;
   background-color: #f4f1ec;
   font-size: 24px;
-  font-family: "Source Sans 3", sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
 main {
   width: 90%;
   margin: auto;
@@ -31,12 +35,14 @@ main {
   padding-bottom: 3em;
 }
 
+
 @media only screen and (min-width: 1024px) {
   body {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
   }
+
   main {
     width: 60%;
     height: auto;

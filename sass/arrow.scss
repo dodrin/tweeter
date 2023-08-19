@@ -1,3 +1,5 @@
+@use 'base';
+
 #toggle-up {
   display: none;
   position: fixed;
@@ -9,7 +11,7 @@
   cursor: pointer;
   padding: 1.5rem;
   border-radius: 50%;
-  background-color: #CA241C;
+  background-color: base.$secondary-color;
   width: 60px;
   height: 60px;
 }

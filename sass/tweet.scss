@@ -1,5 +1,7 @@
+@use 'base';
+
 .tweet {
-  border: 0.3rem solid #545149;
+  border: 0.3rem solid base.$text-color;
   padding: 1rem;
   margin: 1.5rem;
   word-wrap: break-word;
@@ -7,6 +9,7 @@
 
 .tweet:hover {
   box-shadow: 10px 10px #C9C2C7;
+
 }
 
 .tweet header {
@@ -31,7 +34,7 @@
 }
 
 .tweet p {
-  border-bottom: 0.3rem solid #545149;
+  border-bottom: 0.3rem solid base.$text-color;
   padding: 0.5rem;
 }
 
@@ -44,7 +47,7 @@
 
 .tweet .icon {
   margin-right: 0.5rem;
-  color: #4056A1;
+  color: base.$primary-color;
 }
 
 .tweet .icon:hover {
